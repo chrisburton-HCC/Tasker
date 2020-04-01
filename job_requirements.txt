@@ -1,0 +1,29 @@
+
+
+To-Do Application Requirements
+
+The application must be hosted (free tier of AWS or GCC or other) and accessible on the internet. Please provide the URL of the application and a link to / compressed file of the source code.Task items should include the following properties
+
+Name
+Description
+Target completion date
+Completion date
+
+Must be able to perform the following functionality, but not limited to the outline below. 
+
+CRUD on task item
+Mark task item as complete
+View list of task items
+
+-----------------------------------------------
+DATA STRUCTURE
+
+Table: Task
+int ID
+string Name
+string Description
+date Target
+date Started
+date Completion
+bool isComplete
+bool isStarted
