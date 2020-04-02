@@ -20,17 +20,17 @@ just created.
 
 From a shell, go to the top directory of this distribution and enter the 
 following to download and install all needed dependencies:
-...
+```
 composer install
-...
+```
 
 When this is done, set up the database with:
-...
+```
 php artisan migrate
-...
+```
 
 When this completes, run the server with:
-...
+```
 php artisan serve
-...
+```
 
