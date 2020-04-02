@@ -120,7 +120,8 @@
                         </div>
                         <div>
                             This app was built using the Laravel framework, and runs on Apache httpd 2.4,
-                            PHP 7.4, and MySQL 5.5. For more information, see the github page.
+                            PHP 7.4, and MySQL 5.5. For more information, see <a href="https://github.com/chrisburton-HCC/Tasker">the github page</a>.
+
                         </div>
                         <div>
                             <a href="{{ route('tasker.index') }}" class="btn btn-info">Show Task List</a>
