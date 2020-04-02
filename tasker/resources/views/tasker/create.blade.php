@@ -17,14 +17,6 @@
                     <label for="target">Target:</label>
                     <input type="text" name="target" id="target" class="form-control" required>
                 </div>
-                <div class="form-group">
-                    <label for="start">Start:</label>
-                    <input type="text" name="start" id="start" class="form-control" required>
-                </div>
-                <div class="form-group">
-                    <label for="finish">Finish:</label>
-                    <input type="text" name="finish" id="finish" class="form-control" required>
-                </div>
                 <button type="submit" class="btn btn-success">Save</button>
             </form>
         </div>

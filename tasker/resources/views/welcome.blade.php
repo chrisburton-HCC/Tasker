@@ -4,11 +4,11 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
+        <title>Tasker</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
-
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
         <!-- Styles -->
         <style>
             html, body {
@@ -61,6 +61,29 @@
             .m-b-md {
                 margin-bottom: 30px;
             }
+
+            .frame {
+                padding:3px;
+            }
+            .column {
+                width: 46%;
+                display: inline-block;
+                vertical-align: top;
+            }
+            .column-left {
+                margin: 10px 10px 10px 30px;
+            }
+            .column-right {
+                margin: 10px 30px 10px 10px;
+            }
+            .column .subhead {
+                font-size: 32px;
+                font-weight: 700;
+            }
+            .column div {
+                text-align: left;
+                padding: 10px 5px;
+            }
         </style>
     </head>
     <body>
@@ -81,18 +104,45 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Laravel
+                    Tasker
                 </div>
 
-                <div class="links">
-                    <a href="https://laravel.com/docs">Docs</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://blog.laravel.com">Blog</a>
-                    <a href="https://nova.laravel.com">Nova</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://vapor.laravel.com">Vapor</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
+                <div class="frame">
+                    <div id="Program_Info" class="column column-left">
+                        <div class="subhead">Program Info</div>
+                        <div>
+                            <b>Tasker</b> is a simple task list tracker, without typical
+                            expected features like privacy or data assurance. Nope, not this
+                            baby. You can add, edit, update, and delete tasks. You can "start" a task,
+                            thus recording the current date as the 'start' date. You can "finish"
+                            a started task, thus recording the current date as the 'finish' date. The
+                            default view is of the list of all defined tasks.
+                        </div>
+                        <div>
+                            This app was built using the Laravel framework, and runs on Apache httpd 2.4,
+                            PHP 7.4, and MySQL 5.5. For more information, see the github page.
+                        </div>
+                        <div>
+                            <a href="{{ route('tasker.index') }}" class="btn btn-info">Show Task List</a>
+                        </div>
+                    </div>
+                    <div id="Developer_Info" class="column column-right">
+                        <div class="subhead">Developer Info</div>
+                        <div>
+                            This project was created by Christopher Burton of Hill Country Codesmith
+                            on special request. Contact Christopher to build your business management
+                            app.
+                        </div>
+                        <div>
+                            <ul>
+                                <li>Chris Burton</li>
+                                <li>512-585-5071</li>
+                                <li><a href='mailto:chris@hillcountrycodesmith.com'>chris@hillcountrycodesmith.com</a></li>
+                                <li>resume: <a href="http://hillcountrycodesmith.com/resume">http://hillcountrycodesmith.com/resume</a></li>
+                                <li>references: <a href="http://hillcountrycodesmith.com/references">http://hillcountrycodesmith.com/references</a></li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

@@ -27,10 +27,10 @@
                     <input type="text" name="finish" id="finish" class="form-control" required value="{{ $task->finish }}">
                 </div>
                 <div class="form-group">
-                    <input type="checkbox" name="isStarted" id="isStarted" class="form-control" value="TRUE" {{ ($task->isStarted ? 'CHECKED' : '' ) }}>
                     <label for="isStarted">Is Started:</label>
-                    <input type="checkbox" name="isFinished" id="isFinished" class="form-control" value="TRUE" {{ ($task->isFinished ? 'CHECKED' : '' ) }}>
+                    <input type="checkbox" name="isStarted" id="isStarted" class="form-control" value="TRUE" {{ ($task->isStarted ? 'CHECKED' : '' ) }}> Is Started
                     <label for="isFinished">Is Finished: </label>
+                    <input type="checkbox" name="isFinished" id="isFinished" class="form-control" value="TRUE" {{ ($task->isFinished ? 'CHECKED' : '' ) }}> Is Finished
                 </div>
                 <button type="submit" class="btn btn-success">Save</button>
             </form>

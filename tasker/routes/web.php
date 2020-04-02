@@ -24,3 +24,5 @@ Route::get('/tasks/info/{id}','TaskerController@info')->name('tasker.info');
 Route::get('/tasks/delete/{id}','TaskerController@destroy')->name('tasker.destroy');
 Route::post('/tasks/store','TaskerController@store')->name('tasker.store');
 Route::post('/tasks/update','TaskerController@update')->name('tasker.update');
+Route::get('/tasks/initiate/{id}','TaskerController@initiate')->name('tasker.initiate');
+Route::get('/tasks/complete/{id}','TaskerController@complete')->name('tasker.complete');

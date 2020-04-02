@@ -36,12 +36,14 @@ class TaskerController extends Controller
         $task = new Task();
         $task->name = $request->input('name');
         $task->description = $request->input('description');
-        $task->target = $request->input('target');
-        $task->start = $request->input('start');
-        $task->finish = $request->input('finish');
+        $task->target = safeDate($request->input('target'));
+        $task->start = null;
+        $task->finish = null;
+        $task->isStarted = false;
+        $task->isFinished = false;
         $task->save();
 
-        return redirect()->route('task.index')->with('info','Task added.');
+        return redirect()->route('tasker.index')->with('info','Task added.');
     }
 
     /**
@@ -52,7 +54,7 @@ class TaskerController extends Controller
      */
     public function edit($id) {
         $task = Task::find($id);
-        return view('task.edit',['task'=>$task]);
+        return view('tasker.edit',['task'=>$task]);
     }
 
     /**
@@ -66,14 +68,15 @@ class TaskerController extends Controller
         $task = Task::find($request->input('id'));
         $task->name = $request->input('name');
         $task->description = $request->input('description');
-        $task->target = $request->input('target');
-        $task->start = $request->input('start');
-        $task->finish = $request->input('finish');
+        $task->target = safeDate($request->input('target'));
+        $task->start = safeDate($request->input('start'));
+        $task->finish = safeDate($request->input('finish'));
+
         $task->isStarted = ($request->input('isStarted') == 'TRUE');
         $task->isFinished = ($request->input('isFinished') == 'TRUE');
         $task->save();
 
-        return redirect()->route('task.index')->with('info','Task updated.');
+        return redirect()->route('tasker.index')->with('info','Task updated.');
 
     }
 
@@ -83,10 +86,56 @@ class TaskerController extends Controller
      * @param int $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id) {
-        $task = $Task::find($id);
+    public function destroy(int $id) {
+        $task = Task::find($id);
         $task->delete();
 
-        return redirect()->route('task.index')->with('info','Task deleted');
+        return redirect()->route('tasker.index')->with('info','Task deleted');
+    }
+
+    /**
+     * Set the start date and isStarted boolean
+     *
+     * @param int $id
+     * @return \Illuminate\Http\Response
+     */
+    public function initiate(int $id) {
+        $task = Task::find($id);
+        $task->isStarted = true;
+        $task->start = Date('Y-m-d');
+        $task->save();
+
+        return redirect()->route('tasker.index')->with('info','Task updated.');
+    }
+
+    /**
+     * Set the finish date and isFinished boolean
+     *
+     * @param int $id
+     * @return \Illuminate\Http\Response
+     */
+    public function complete(int $id) {
+        $task = Task::find($id);
+        $task->isFinished = true;
+        $task->finish = Date('Y-m-d');
+        $task->save();
+
+        return redirect()->route('tasker.index')->with('info','Task updated.');
     }
 }
+
+/**
+  * If given date string converts to a real date,
+  *   return date string formatted for mysql
+  * else
+  *   return null
+  */
+  function safeDate($datestring) {
+    $datesecs = strtotime($datestring);
+    if ($datesecs > 0) {
+        return Date("Y-m-d",$datesecs);
+    } else {
+        return null;
+    }
+}
+
